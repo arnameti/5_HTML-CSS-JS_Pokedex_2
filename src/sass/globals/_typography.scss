@@ -1,0 +1,31 @@
+@use '../util' as u;
+
+.container-body {
+  background-color: hsl(0, 0%, 100%);
+}
+
+ul {
+  list-style-type: none;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+.heading-1,
+.heading-2,
+.heading-3 {
+  font-weight: 700;
+  line-height: 1.1;
+  margin-top: 0;
+  margin-bottom: u.rem(20);
+}
+
+// .heading-1 {
+//   font-size: clamp(u.rem(28), u.rem(16) + 2vw, u.rem(40));
+// }
+
+// .heading-2 {
+//   font-size: clamp(u.rem(22), u.rem(12) + 1.5vw, u.rem(36));
+// }

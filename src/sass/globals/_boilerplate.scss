@@ -1,0 +1,29 @@
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.container-body {
+  min-height: 100vh;
+}
+
+a svg {
+  pointer-events: none;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
