@@ -1,7 +1,10 @@
 @use '../util' as u;
 
 .pokemon {
-  &__icon {
+  &__icon-link {
+    height: u.rem(15);
+    width: u.rem(15);
+
     position: absolute;
     top: u.rem(10);
     right: u.rem(10);
