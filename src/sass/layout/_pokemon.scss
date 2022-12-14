@@ -1,6 +1,32 @@
 @use '../util' as u;
 
 .pokemon {
-  background-color: lightgray;
-  height: u.rem(264);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: u.rem(12);
+
+  background-color: lightblue;
+  border-radius: u.rem(5);
+  padding-block: u.rem(15);
+
+  box-shadow: 5px 5px 5px hsla(0, 0, 0, 0.4);
+
+  &__img-wrapper {
+    height: u.rem(130);
+    width: u.rem(130);
+    background-color: bisque;
+    border-radius: 50%;
+  }
+
+  &__id {
+    background-color: hsl(0, 0%, 70%);
+    padding: u.rem(3) u.rem(7);
+    border-radius: u.rem(10);
+  }
+
+  &__name {
+    font-size: u.rem(20);
+    font-weight: bold;
+  }
 }
