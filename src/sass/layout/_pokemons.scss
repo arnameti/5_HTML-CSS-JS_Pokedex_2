@@ -1,0 +1,8 @@
+@use '../util' as u;
+
+.pokemons {
+  background-color: gold;
+  min-height: 100vh;
+  width: min(100% - u.rem(30), u.rem(860));
+  margin-inline: auto;
+}
