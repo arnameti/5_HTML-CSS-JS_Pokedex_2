@@ -1,7 +1,7 @@
 @use '../util' as u;
 
 .container-body {
-  background-color: hsl(0, 0%, 100%);
+  background: linear-gradient(var(--clr-yellow), var(--clr-grey));
 }
 
 ul {

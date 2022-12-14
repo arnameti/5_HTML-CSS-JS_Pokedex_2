@@ -1,0 +1,6 @@
+@use '../util' as u;
+
+.card {
+  background-color: lightgray;
+  height: u.rem(264);
+}

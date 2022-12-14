@@ -1,8 +1,10 @@
 @use '../util' as u;
 
 .pokemons {
-  background-color: gold;
-  min-height: 100vh;
   width: min(100% - u.rem(30), u.rem(860));
   margin-inline: auto;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, u.rem(160));
+  gap: u.rem(15);
 }
