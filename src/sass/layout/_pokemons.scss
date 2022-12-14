@@ -6,5 +6,6 @@
 
   display: grid;
   grid-template-columns: repeat(auto-fit, u.rem(160));
+  justify-content: center;
   gap: u.rem(15);
 }
