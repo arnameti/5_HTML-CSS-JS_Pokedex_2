@@ -11,13 +11,18 @@
   justify-content: space-between;
   align-items: center;
 
+  @include u.breakpoint-down(small) {
+    flex-direction: column;
+    gap: u.rem(25);
+  }
+
   &__logo {
     height: u.rem(60);
     width: auto;
   }
 
   &__form {
-    width: u.rem(400);
+    width: min(100%, u.rem(400));
 
     display: flex;
     justify-content: center;
