@@ -7,11 +7,13 @@
 }
 
 .bookmark-icon {
-  height: u.rem(40);
-  width: u.rem(40);
+  height: u.rem(30);
+  width: u.rem(30);
+  fill: hsl(0, 0%, 40%);
 }
 
 .search-icon {
-  height: u.rem(40);
-  width: u.rem(40);
+  height: u.rem(25);
+  width: u.rem(25);
+  fill: hsl(0, 0%, 97%);
 }
