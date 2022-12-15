@@ -1,6 +1,6 @@
 @use '../util' as u;
 
-.container-body {
+.body {
   background: linear-gradient(var(--clr-yellow), var(--clr-grey));
 }
 
@@ -19,7 +19,6 @@ a:visited {
   font-weight: 700;
   line-height: 1.1;
   margin-top: 0;
-  margin-bottom: u.rem(20);
 }
 
 // .heading-1 {

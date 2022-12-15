@@ -1,0 +1,17 @@
+@use '../util' as u;
+
+.icon-heart {
+  height: u.rem(15);
+  width: u.rem(15);
+  fill: hsl(0, 0%, 40%);
+}
+
+.bookmark-icon {
+  height: u.rem(40);
+  width: u.rem(40);
+}
+
+.search-icon {
+  height: u.rem(40);
+  width: u.rem(40);
+}

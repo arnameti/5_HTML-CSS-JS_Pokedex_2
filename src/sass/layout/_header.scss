@@ -1,0 +1,8 @@
+@use '../util' as u;
+
+.header {
+  &__logo {
+    height: u.rem(60);
+    width: auto;
+  }
+}

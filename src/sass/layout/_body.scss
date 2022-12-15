@@ -1,0 +1,8 @@
+@use '../util' as u;
+
+.body {
+  &__heading-1 {
+    text-align: center;
+    padding-block: u.rem(30);
+  }
+}
