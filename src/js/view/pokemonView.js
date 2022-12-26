@@ -17,10 +17,13 @@ const PokemonView = class {
   }
 
   _generateMarkup() {
+    const root = document.querySelector(':root');
+    const rootStyles = getComputedStyle(root);
     return this._data
       .map(pokemon => {
+        // prettier-ignore
         return `
-        <article class="pokemon">
+        <article class="pokemon" style="background-color: ${rootStyles.getPropertyValue(`--${pokemon.type}`)}">
           <a href="#" class="pokemon__icon-link">
             <svg class="icon-heart">
               <use xlink:href="src/assets/sprites.svg#icon-heart-regular"></use>
