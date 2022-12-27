@@ -13,6 +13,7 @@ const controlPokemons = async function () {
 
 const init = function () {
   pokemonView.addLoadHanlder(controlPokemons);
+  pokemonView.addMouseEvent();
 };
 
 init();

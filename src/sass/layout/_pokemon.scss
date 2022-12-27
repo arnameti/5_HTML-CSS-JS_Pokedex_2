@@ -1,6 +1,12 @@
 @use '../util' as u;
 
 .pokemon {
+  transition: all 0.2s linear;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
   &__icon-link {
     height: u.rem(15);
     width: u.rem(15);
@@ -15,7 +21,6 @@
   align-items: center;
   gap: u.rem(12);
 
-  background-color: lightblue;
   border-radius: u.rem(5);
   padding-block: u.rem(15);
 
