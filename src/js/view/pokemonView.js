@@ -5,8 +5,9 @@ const PokemonView = class {
 
   hideModalWindow() {
     const overlayEl = document.querySelector('[data-overlay]');
-    const modalWindowEl = document.querySelector('[data-modal-window]');
+    const closeIcon = document.querySelector('[data-close-icon]');
 
+    // close modal window when clicking on overlay
     overlayEl.addEventListener('click', function (e) {
       if (e.target.closest('[data-modal-window]')) return;
 
@@ -15,11 +16,19 @@ const PokemonView = class {
       }
     });
 
+    // close modal window when pressin esc key
     window.addEventListener('keyup', function (e) {
       if (e.key === 'Escape') {
         if (overlayEl.dataset.overlay === 'visible') {
           overlayEl.dataset.overlay = 'hidden';
         }
+      }
+    });
+
+    // close modal window when clicking on close icon
+    closeIcon.addEventListener('click', function () {
+      if (overlayEl.dataset.overlay === 'visible') {
+        overlayEl.dataset.overlay = 'hidden';
       }
     });
   }
