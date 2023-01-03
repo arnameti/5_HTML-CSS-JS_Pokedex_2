@@ -5,6 +5,7 @@ const PokemonView = class {
 
   hideModalWindow() {
     const overlayEl = document.querySelector('[data-overlay]');
+    const modalWindowEl = document.querySelector('[data-modal-window]');
 
     overlayEl.addEventListener('click', function (e) {
       if (e.target.closest('[data-modal-window]')) return;

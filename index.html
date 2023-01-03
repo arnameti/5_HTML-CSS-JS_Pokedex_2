@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- Link FONTS -->
@@ -49,8 +49,14 @@
         </a>
       </header>
       <section class="pokemons" data-pokemon-container></section>
-      <div class="overlay" data-overlay="hidden">
-        <div class="modal-window" data-modal-window></div>
+      <div class="overlay" data-overlay="visible">
+        <div class="modal-window" data-modal-window>
+          <img
+            class="modal-window__close" data-modal-window="close"
+            src="src/assets/xmark-solid.svg"
+            alt="close icon"
+          />
+        </div>
       </div>
     </div>
   </body>

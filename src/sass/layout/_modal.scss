@@ -11,15 +11,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  transition: all 1s ease-in;
 }
 
 .modal-window {
+  position: relative;
   width: min(100% - u.rem(30), u.rem(1400));
   height: 900px;
   background-color: aliceblue;
   border-radius: u.rem(10);
+
+  &__close {
+    position: absolute;
+    width: u.rem(40);
+    height: u.rem(40);
+
+    right: u.rem(10);
+    top: u.rem(10);
+  }
 }
 
 [data-overlay='hidden'] {
