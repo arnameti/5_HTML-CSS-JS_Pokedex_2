@@ -11,9 +11,14 @@ const controlPokemons = async function () {
   }
 };
 
+const controlAutoCompletion = function (query) {
+  pokemonView.render(model.searchPokemon(query));
+};
+
 const init = function () {
   pokemonView.addLoadHanlder(controlPokemons);
   pokemonView.addMouseEvent();
+  pokemonView.addAutoComletion(controlAutoCompletion);
 };
 
 init();

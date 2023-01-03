@@ -1,6 +1,15 @@
 const PokemonView = class {
   _data;
   _parentElement = document.querySelector('[data-pokemon-container]');
+  _searchForm = document.querySelector('[data-form]');
+
+  addAutoComletion(handler) {
+    this._searchForm.addEventListener('input', function (e) {
+      e.preventDefault();
+      const searchBar = document.querySelector('[data-search-bar]');
+      handler(searchBar.value);
+    });
+  }
 
   addMouseEvent() {
     ['mouseover', 'mouseout'].forEach(event => {
@@ -42,6 +51,7 @@ const PokemonView = class {
   _generateMarkup() {
     const root = document.querySelector(':root');
     const rootStyles = getComputedStyle(root);
+
     return this._data
       .map(pokemon => {
         // prettier-ignore

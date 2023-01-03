@@ -31,3 +31,9 @@ export const loadPokemons = async function () {
     };
   });
 };
+
+export const searchPokemon = function (query) {
+  return state.pokemons.filter(pokemon => {
+    if (pokemon.name.startsWith(query.toLowerCase())) return pokemon;
+  });
+};
