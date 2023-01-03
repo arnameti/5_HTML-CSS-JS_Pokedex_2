@@ -3,6 +3,18 @@ const PokemonView = class {
   _parentElement = document.querySelector('[data-pokemon-container]');
   _searchForm = document.querySelector('[data-form]');
 
+  hideModalWindow() {
+    const overlayEl = document.querySelector('[data-overlay]');
+
+    overlayEl.addEventListener('click', function (e) {
+      if (e.target.closest('[data-modal-window]')) return;
+
+      if (overlayEl.dataset.overlay === 'visible') {
+        overlayEl.dataset.overlay = 'hidden';
+      }
+    });
+  }
+
   showModalWindow() {
     this._parentElement.addEventListener('click', function (e) {
       const clicked = e.target.closest('[data-pokemon-card]');
