@@ -13,6 +13,14 @@ const PokemonView = class {
         overlayEl.dataset.overlay = 'hidden';
       }
     });
+
+    window.addEventListener('keyup', function (e) {
+      if (e.key === 'Escape') {
+        if (overlayEl.dataset.overlay === 'visible') {
+          overlayEl.dataset.overlay = 'hidden';
+        }
+      }
+    });
   }
 
   showModalWindow() {
