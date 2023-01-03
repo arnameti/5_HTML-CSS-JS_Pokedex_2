@@ -2,6 +2,22 @@ const PokemonView = class {
   _data;
   _parentElement = document.querySelector('[data-pokemon-container]');
   _searchForm = document.querySelector('[data-form]');
+  _overlay = document.querySelector('[data-overlay]');
+
+  showModalWindow() {
+    this._parentElement.addEventListener('click', function (e) {
+      const clicked = e.target.closest('[data-pokemon-card]');
+
+      if (!clicked) return;
+
+      const bodyEl = clicked.closest('[data-body]');
+      const overlayEl = bodyEl.querySelector('[data-overlay]');
+
+      if (overlayEl.dataset.overlay === 'hidden') {
+        overlayEl.dataset.overlay = 'visible';
+      }
+    });
+  }
 
   addAutoComletion(handler) {
     this._searchForm.addEventListener('input', function (e) {

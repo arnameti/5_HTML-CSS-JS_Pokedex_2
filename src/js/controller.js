@@ -19,6 +19,7 @@ const init = function () {
   pokemonView.addLoadHanlder(controlPokemons);
   pokemonView.addMouseEvent();
   pokemonView.addAutoComletion(controlAutoCompletion);
+  pokemonView.showModalWindow();
 };
 
 init();

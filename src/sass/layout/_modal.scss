@@ -19,3 +19,11 @@
   background-color: aliceblue;
   border-radius: u.rem(10);
 }
+
+[data-overlay='hidden'] {
+  display: none;
+}
+
+[data-overlay='visible'] {
+  display: flex;
+}
