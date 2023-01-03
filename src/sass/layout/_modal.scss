@@ -1,0 +1,21 @@
+@use '../util' as u;
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: hsla(0, 0%, 0%, 0.6);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-window {
+  width: min(100% - u.rem(30), u.rem(1400));
+  height: 900px;
+  background-color: aliceblue;
+  border-radius: u.rem(10);
+}
