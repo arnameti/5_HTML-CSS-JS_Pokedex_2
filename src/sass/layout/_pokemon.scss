@@ -8,12 +8,12 @@
   }
 
   &__icon-link {
-    height: u.rem(15);
-    width: u.rem(15);
+    width: u.rem(20);
+    height: u.rem(20);
 
     position: absolute;
-    top: u.rem(10);
-    right: u.rem(10);
+    top: u.rem(7);
+    right: u.rem(7);
   }
 
   display: flex;

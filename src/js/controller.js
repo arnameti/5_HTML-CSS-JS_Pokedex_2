@@ -17,10 +17,10 @@ const controlAutoCompletion = function (query) {
 
 const init = function () {
   pokemonView.addLoadHanlder(controlPokemons);
-  pokemonView.addMouseEvent();
+  // pokemonView.addMouseEvent();
   pokemonView.addAutoComletion(controlAutoCompletion);
-  pokemonView.showModalWindow();
-  pokemonView.hideModalWindow();
+  // pokemonView.showModalWindow();
+  // pokemonView.hideModalWindow();
 };
 
 init();

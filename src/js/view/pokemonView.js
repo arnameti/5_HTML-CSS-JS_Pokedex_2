@@ -1,3 +1,5 @@
+import icons from 'url:../../assets/sprites.svg';
+
 const PokemonView = class {
   _data;
   _parentElement = document.querySelector('[data-pokemon-container]');
@@ -103,14 +105,17 @@ const PokemonView = class {
           <article class="pokemon" 
             data-pokemon-card 
             style="background-color: ${rootStyles.getPropertyValue(`--${pokemon.type}`)}">
+          
             <a href="#" class="pokemon__icon-link">
               <svg class="icon-heart">
-                <use xlink:href="src/assets/sprites.svg#icon-heart-regular"></use>
+                <use xlink:href="${icons}#icon-heart-regular"></use>
               </svg>
             </a>
+
             <div class="pokemon__img-wrapper mb-10">
               <img src="${pokemon.image}" alt="" class="pokemon__img" />
             </div>
+
             <p class="pokemon__id">#${pokemon.id.toString().padStart(3, '0')}</p>
             <p class="pokemon__name">${pokemon.name}</p>
             <p class="pokemon__type">
