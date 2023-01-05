@@ -5,6 +5,8 @@ const PokemonView = class {
   _parentElement = document.querySelector('[data-pokemon-container]');
   _searchForm = document.querySelector('[data-form]');
 
+  addToFavourites() {}
+
   hideModalWindow() {
     const overlayEl = document.querySelector('[data-overlay]');
     const closeIcon = document.querySelector('[data-close-icon]');
@@ -13,30 +15,28 @@ const PokemonView = class {
     overlayEl.addEventListener('click', function (e) {
       if (e.target.closest('[data-modal-window]')) return;
 
-      if (overlayEl.dataset.overlay === 'visible') {
+      if (overlayEl.dataset.overlay === 'visible')
         overlayEl.dataset.overlay = 'hidden';
-      }
     });
 
-    // close modal window when pressin esc key
+    // close modal window when pressing esc key
     window.addEventListener('keyup', function (e) {
       if (e.key === 'Escape') {
-        if (overlayEl.dataset.overlay === 'visible') {
+        if (overlayEl.dataset.overlay === 'visible')
           overlayEl.dataset.overlay = 'hidden';
-        }
       }
     });
 
     // close modal window when clicking on close icon
     closeIcon.addEventListener('click', function () {
-      if (overlayEl.dataset.overlay === 'visible') {
+      if (overlayEl.dataset.overlay === 'visible')
         overlayEl.dataset.overlay = 'hidden';
-      }
     });
   }
 
   showModalWindow() {
     this._parentElement.addEventListener('click', function (e) {
+      // When clicking on heart symbol, modal window should not be opened
       if (e.target.closest('[data-heart-link]')) return;
 
       const clicked = e.target.closest('[data-pokemon-card]');
@@ -45,9 +45,8 @@ const PokemonView = class {
 
       const overlayEl = document.querySelector('[data-overlay]');
 
-      if (overlayEl.dataset.overlay === 'hidden') {
+      if (overlayEl.dataset.overlay === 'hidden')
         overlayEl.dataset.overlay = 'visible';
-      }
     });
   }
 
