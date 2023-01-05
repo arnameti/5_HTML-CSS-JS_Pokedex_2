@@ -15,12 +15,18 @@ const controlAutoCompletion = function (query) {
   pokemonView.render(model.searchPokemon(query));
 };
 
+const controlFavourites = function (id) {
+  model.bookmarkPokemon(id);
+  pokemonView.render(model.state.pokemons);
+};
+
 const init = function () {
   pokemonView.addLoadHanlder(controlPokemons);
   pokemonView.addMouseEvent();
   pokemonView.addAutoComletion(controlAutoCompletion);
   pokemonView.showModalWindow();
   pokemonView.hideModalWindow();
+  pokemonView.addToFavourites(controlFavourites);
 };
 
 init();

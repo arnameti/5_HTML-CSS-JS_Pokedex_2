@@ -5,7 +5,17 @@ const PokemonView = class {
   _parentElement = document.querySelector('[data-pokemon-container]');
   _searchForm = document.querySelector('[data-form]');
 
-  addToFavourites() {}
+  addToFavourites(handler) {
+    this._parentElement.addEventListener('click', function (e) {
+      const clicked = e.target.closest('[data-heart-link]');
+
+      if (!clicked) return;
+
+      const id = clicked.closest('[data-pokemon-card]').dataset.pokemonCard;
+
+      handler(+id);
+    });
+  }
 
   hideModalWindow() {
     const overlayEl = document.querySelector('[data-overlay]');
@@ -104,12 +114,12 @@ const PokemonView = class {
         // prettier-ignore
         return `
           <article class="pokemon" 
-            data-pokemon-card 
+            data-pokemon-card='${pokemon.id}' 
             style="background-color: ${rootStyles.getPropertyValue(`--${pokemon.type}`)}">
           
             <a href="#" class="pokemon__icon-link" data-heart-link>
               <svg class="icon-heart">
-                <use xlink:href="${icons}#icon-heart-regular"></use>
+                <use xlink:href="${icons}#icon-${pokemon.bookmarked ? 'heart' : 'heart-regular'}"></use>
               </svg>
             </a>
 

@@ -1,5 +1,6 @@
 export const state = {
   pokemons: [],
+  bookmarks: [],
 };
 
 export const loadPokemons = async function () {
@@ -35,5 +36,13 @@ export const loadPokemons = async function () {
 export const searchPokemon = function (query) {
   return state.pokemons.filter(pokemon => {
     if (pokemon.name.startsWith(query.toLowerCase())) return pokemon;
+  });
+};
+
+export const bookmarkPokemon = function (id) {
+  state.pokemons.forEach(pokemon => {
+    if (pokemon.id === id) {
+      pokemon.bookmarked = pokemon.bookmarked ? false : true;
+    }
   });
 };
