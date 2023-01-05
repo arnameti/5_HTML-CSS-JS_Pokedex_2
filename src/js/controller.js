@@ -5,6 +5,8 @@ const controlPokemons = async function () {
   try {
     await model.loadPokemons();
 
+    model.fetchBookmarks();
+
     pokemonView.render(model.state.pokemons);
   } catch (error) {
     console.error(error);

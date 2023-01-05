@@ -39,10 +39,38 @@ export const searchPokemon = function (query) {
   });
 };
 
+const pushOrDeleteBookmark = function (pokemon, id) {
+  console.log(pokemon.bookmarked);
+  if (pokemon.bookmarked) {
+    state.bookmarks.push(pokemon);
+    localStorage.setItem('bookmarks', JSON.stringify(state.bookmarks));
+  } else {
+    const index = state.bookmarks.findIndex(pokemon => pokemon.id === id);
+    state.bookmarks.splice(index, 1);
+    localStorage.setItem('bookmarks', JSON.stringify(state.bookmarks));
+  }
+};
+
 export const bookmarkPokemon = function (id) {
-  state.pokemons.forEach(pokemon => {
-    if (pokemon.id === id) {
-      pokemon.bookmarked = pokemon.bookmarked ? false : true;
-    }
-  });
+  const pokemon = state.pokemons.find(pokemon => pokemon.id === id);
+
+  pokemon.bookmarked = pokemon.bookmarked ? false : true;
+
+  pushOrDeleteBookmark(pokemon, id);
+
+  console.log(state.bookmarks);
+};
+
+export const fetchBookmarks = function () {
+  if (localStorage.getItem('bookmarks'))
+    state.bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+
+  if (state.bookmarks.length !== 0) {
+    state.bookmarks.forEach(bookmark => {
+      // prettier-ignore
+      const pokemon = state.pokemons.find(pokemon => pokemon.id === bookmark.id);
+
+      pokemon.bookmark = true;
+    });
+  }
 };
