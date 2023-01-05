@@ -1,6 +1,7 @@
 @use '../util' as u;
 
 .pokemon {
+  cursor: pointer;
   transition: all 0.2s linear;
 
   &:hover {

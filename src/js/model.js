@@ -4,7 +4,7 @@ export const state = {
 
 export const loadPokemons = async function () {
   const res = await fetch(
-    'https://pokeapi.co/api/v2/pokemon?limit=150&offset=0'
+    'https://pokeapi.co/api/v2/pokemon?limit=450&offset=0'
   );
 
   if (!res.ok) throw new Error(`${res.status}: API not found`);

@@ -37,6 +37,8 @@ const PokemonView = class {
 
   showModalWindow() {
     this._parentElement.addEventListener('click', function (e) {
+      if (e.target.closest('[data-heart-link]')) return;
+
       const clicked = e.target.closest('[data-pokemon-card]');
 
       if (!clicked) return;
@@ -106,7 +108,7 @@ const PokemonView = class {
             data-pokemon-card 
             style="background-color: ${rootStyles.getPropertyValue(`--${pokemon.type}`)}">
           
-            <a href="#" class="pokemon__icon-link">
+            <a href="#" class="pokemon__icon-link" data-heart-link>
               <svg class="icon-heart">
                 <use xlink:href="${icons}#icon-heart-regular"></use>
               </svg>
