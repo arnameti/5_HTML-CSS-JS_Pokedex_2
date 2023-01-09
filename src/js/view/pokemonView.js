@@ -1,9 +1,9 @@
 import icons from 'url:../../assets/sprites.svg';
-import pokemonLogo from 'url:../../assets/pokemon-log.png';
 
 const PokemonView = class {
   _data;
   _parentElement = document.querySelector('[data-pokemon-container]');
+  _bookmarksArray;
 
   addToFavourites(handler) {
     this._parentElement.addEventListener('click', function (e) {
@@ -107,7 +107,8 @@ const PokemonView = class {
     this._parentElement.insertAdjacentHTML('afterbegin', markUp);
   }
 
-  renderBookmarkIcon() {
+  renderBookmarkIcon(data) {
+    this._bookmarksArray = data;
     const bookmarkWrapperEl = document.querySelector('[data-bookmark-wrapper]');
 
     const markUp = this._generetaBookmarkIcon();
@@ -119,7 +120,7 @@ const PokemonView = class {
   _generetaBookmarkIcon() {
     return `
       <a href="#" class="header__bookmark-link">
-        <span class="header__bookmarks-number">0</span>
+        <span class="header__bookmarks-number">${this._bookmarksArray.length}</span>
         <svg class="bookmark-icon">
           <use
           xlink:href="${icons}#icon-bookmark-regular"

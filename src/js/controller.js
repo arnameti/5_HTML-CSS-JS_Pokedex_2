@@ -7,7 +7,7 @@ const controlPokemons = async function () {
 
     model.fetchBookmarks();
 
-    pokemonView.renderBookmarkIcon();
+    pokemonView.renderBookmarkIcon(model.state.bookmarks);
 
     pokemonView.renderPokemons(model.state.pokemons);
   } catch (error) {
@@ -22,6 +22,7 @@ const controlAutoCompletion = function (query) {
 const controlFavourites = function (id) {
   model.bookmarkPokemon(id);
   model.fetchBookmarks();
+  pokemonView.renderBookmarkIcon(model.state.bookmarks);
   pokemonView.renderPokemons(model.state.pokemons);
 };
 
