@@ -1,9 +1,9 @@
 import icons from 'url:../../assets/sprites.svg';
+import pokemonLogo from 'url:../../assets/pokemon-log.png';
 
 const PokemonView = class {
   _data;
   _parentElement = document.querySelector('[data-pokemon-container]');
-  _searchForm = document.querySelector('[data-form]');
 
   addToFavourites(handler) {
     this._parentElement.addEventListener('click', function (e) {
@@ -19,7 +19,7 @@ const PokemonView = class {
 
   hideModalWindow() {
     const overlayEl = document.querySelector('[data-overlay]');
-    const closeIcon = document.querySelector('[data-close-icon]');
+    const closeIconEL = document.querySelector('[data-close-icon]');
 
     // close modal window when clicking on overlay
     overlayEl.addEventListener('click', function (e) {
@@ -38,7 +38,7 @@ const PokemonView = class {
     });
 
     // close modal window when clicking on close icon
-    closeIcon.addEventListener('click', function () {
+    closeIconEL.addEventListener('click', function () {
       if (overlayEl.dataset.overlay === 'visible')
         overlayEl.dataset.overlay = 'hidden';
     });
@@ -46,7 +46,7 @@ const PokemonView = class {
 
   showModalWindow() {
     this._parentElement.addEventListener('click', function (e) {
-      // When clicking on heart symbol, modal window should not be opened
+      // When clicking on heart link, modal window should not be opened
       if (e.target.closest('[data-heart-link]')) return;
 
       const clicked = e.target.closest('[data-pokemon-card]');
@@ -61,7 +61,9 @@ const PokemonView = class {
   }
 
   addAutoComletion(handler) {
-    this._searchForm.addEventListener('input', function (e) {
+    const headerEl = document.querySelector('[data-header]');
+
+    headerEl.addEventListener('input', function (e) {
       e.preventDefault();
       const searchBar = document.querySelector('[data-search-bar]');
       handler(searchBar.value);
@@ -97,15 +99,59 @@ const PokemonView = class {
     });
   }
 
-  render(data) {
+  renderPokemons(data) {
     this._data = data;
-    const markUp = this._generateMarkup();
+    const markUp = this._generateMarkupPokemons();
 
     this._parentElement.innerHTML = '';
     this._parentElement.insertAdjacentHTML('afterbegin', markUp);
   }
 
-  _generateMarkup() {
+  renderHeader() {
+    const headerEl = document.querySelector('[data-header]');
+    const markUp = this._generetaMarkupHeader();
+
+    headerEl.innerHTML = '';
+    headerEl.insertAdjacentHTML('afterbegin', markUp);
+  }
+
+  _generetaMarkupHeader() {
+    return `
+      <div class="header__logo-wrapper">
+        <img
+          src="${pokemonLogo}"
+          alt="Header Logo"
+          class="header__logo"
+        />
+      </div>
+      <form class="header__form" data-form>
+        <input
+          placeholder="Search Pokemon..."
+          type="text"
+          class="header__searchbar"
+          data-search-bar
+        />
+        <button class="header__btn">
+          <svg class="header__search-icon search-icon">
+            <use
+              xlink:href="${icons}#icon-magnifying-glass-solid"
+            ></use>
+          </svg>
+          <span>Search</span>
+        </button>
+      </form>
+      <a href="#" class="header__bookmark-link">
+        <span class="header__bookmarks-number">0</span>
+        <svg class="bookmark-icon">
+          <use
+            xlink:href="${icons}#icon-bookmark-regular"
+          ></use>
+        </svg>
+      </a>
+    `;
+  }
+
+  _generateMarkupPokemons() {
     const root = document.querySelector(':root');
     const rootStyles = getComputedStyle(root);
 

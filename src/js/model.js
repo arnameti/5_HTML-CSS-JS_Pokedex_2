@@ -40,7 +40,6 @@ export const searchPokemon = function (query) {
 };
 
 const pushOrDeleteBookmark = function (pokemon, id) {
-  console.log(pokemon.bookmarked);
   if (pokemon.bookmarked) {
     state.bookmarks.push(pokemon);
     localStorage.setItem('bookmarks', JSON.stringify(state.bookmarks));
@@ -57,8 +56,6 @@ export const bookmarkPokemon = function (id) {
   pokemon.bookmarked = pokemon.bookmarked ? false : true;
 
   pushOrDeleteBookmark(pokemon, id);
-
-  console.log(state.bookmarks);
 };
 
 export const fetchBookmarks = function () {
@@ -70,7 +67,7 @@ export const fetchBookmarks = function () {
       // prettier-ignore
       const pokemon = state.pokemons.find(pokemon => pokemon.id === bookmark.id);
 
-      pokemon.bookmark = true;
+      pokemon.bookmarked = true;
     });
   }
 };

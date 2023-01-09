@@ -7,19 +7,24 @@ const controlPokemons = async function () {
 
     model.fetchBookmarks();
 
-    pokemonView.render(model.state.pokemons);
+    pokemonView.renderHeader();
+
+    console.log(model.state.pokemons);
+
+    pokemonView.renderPokemons(model.state.pokemons);
   } catch (error) {
     console.error(error);
   }
 };
 
 const controlAutoCompletion = function (query) {
-  pokemonView.render(model.searchPokemon(query));
+  pokemonView.renderPokemons(model.searchPokemon(query));
 };
 
 const controlFavourites = function (id) {
   model.bookmarkPokemon(id);
-  pokemonView.render(model.state.pokemons);
+  model.fetchBookmarks();
+  pokemonView.renderPokemons(model.state.pokemons);
 };
 
 const init = function () {
