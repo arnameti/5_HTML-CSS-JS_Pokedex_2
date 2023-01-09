@@ -7,9 +7,7 @@ const controlPokemons = async function () {
 
     model.fetchBookmarks();
 
-    pokemonView.renderHeader();
-
-    console.log(model.state.pokemons);
+    pokemonView.renderBookmarkIcon();
 
     pokemonView.renderPokemons(model.state.pokemons);
   } catch (error) {

@@ -107,47 +107,25 @@ const PokemonView = class {
     this._parentElement.insertAdjacentHTML('afterbegin', markUp);
   }
 
-  renderHeader() {
-    const headerEl = document.querySelector('[data-header]');
-    const markUp = this._generetaMarkupHeader();
+  renderBookmarkIcon() {
+    const bookmarkWrapperEl = document.querySelector('[data-bookmark-wrapper]');
 
-    headerEl.innerHTML = '';
-    headerEl.insertAdjacentHTML('afterbegin', markUp);
+    const markUp = this._generetaBookmarkIcon();
+
+    bookmarkWrapperEl.innerHTML = '';
+    bookmarkWrapperEl.insertAdjacentHTML('afterbegin', markUp);
   }
 
-  _generetaMarkupHeader() {
+  _generetaBookmarkIcon() {
     return `
-      <div class="header__logo-wrapper">
-        <img
-          src="${pokemonLogo}"
-          alt="Header Logo"
-          class="header__logo"
-        />
-      </div>
-      <form class="header__form" data-form>
-        <input
-          placeholder="Search Pokemon..."
-          type="text"
-          class="header__searchbar"
-          data-search-bar
-        />
-        <button class="header__btn">
-          <svg class="header__search-icon search-icon">
-            <use
-              xlink:href="${icons}#icon-magnifying-glass-solid"
-            ></use>
-          </svg>
-          <span>Search</span>
-        </button>
-      </form>
       <a href="#" class="header__bookmark-link">
         <span class="header__bookmarks-number">0</span>
         <svg class="bookmark-icon">
           <use
-            xlink:href="${icons}#icon-bookmark-regular"
+          xlink:href="${icons}#icon-bookmark-regular"
           ></use>
         </svg>
-      </a>
+       </a>
     `;
   }
 

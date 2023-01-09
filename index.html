@@ -17,7 +17,7 @@
     <div class="body" data-body>
       <h1 class="heading-1 body__heading-1">Pokedex</h1>
       <header class="header" data-header>
-        <!-- <div class="header__logo-wrapper">
+        <div class="header__logo-wrapper">
           <img
             src="src/assets/pokemon-log.png"
             alt="Header Logo"
@@ -40,14 +40,16 @@
             <span>Search</span>
           </button>
         </form>
-        <a href="#" class="header__bookmark-link">
-          <span class="header__bookmarks-number">0</span>
-          <svg class="bookmark-icon">
-            <use
+        <div class="header__bookmark-wrapper" data-bookmark-wrapper>
+          <!-- <a href="#" class="header__bookmark-link">
+            <span class="header__bookmarks-number">0</span>
+            <svg class="bookmark-icon">
+              <use
               xlink:href="src/assets/sprites.svg#icon-bookmark-regular"
-            ></use>
-          </svg>
-        </a> -->
+              ></use>
+            </svg>
+          </a> -->
+        </div>
       </header>
       <section class="pokemons" data-pokemon-container=""></section>
       <div class="overlay" data-overlay="hidden">
