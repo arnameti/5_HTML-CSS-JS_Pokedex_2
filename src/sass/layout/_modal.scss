@@ -20,6 +20,9 @@
   background-color: aliceblue;
   border-radius: u.rem(10);
 
+  display: grid;
+  grid-template-rows: min-content 1fr u.rem(120);
+
   &__close {
     position: absolute;
     width: u.rem(40);
@@ -27,6 +30,133 @@
 
     right: u.rem(10);
     top: u.rem(10);
+  }
+
+  &__title {
+    padding-block: u.rem(45);
+    font-size: u.rem(35);
+  }
+
+  &__arrows {
+    display: flex;
+    justify-content: space-between;
+    font-size: u.rem(30);
+
+    &--prev {
+      display: flex;
+      align-items: center;
+    }
+
+    &--next {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__pokemon-id-prev,
+  &__pokemon-id-next {
+    padding-inline: u.rem(10);
+    font-size: u.rem(30);
+  }
+
+  &__arrow {
+    width: u.rem(40);
+    right: u.rem(40);
+    margin-inline: u.rem(20);
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+  }
+
+  &__types {
+    padding-top: u.rem(200);
+    display: grid;
+    grid-auto-columns: repeat(3, min-content);
+    align-content: start;
+    justify-items: center;
+
+    gap: u.rem(7);
+  }
+
+  &__picture {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__details {
+    padding-top: u.rem(200);
+    display: grid;
+    grid-template-columns: max-content max-content;
+    align-content: start;
+    justify-content: center;
+    justify-items: center;
+    grid-column-gap: u.rem(30);
+    grid-row-gap: u.rem(7);
+  }
+
+  &__title {
+    padding-bottom: u.rem(10);
+    font-size: 30;
+  }
+
+  &__type {
+    border: 1px solid black;
+    font-size: u.rem(20);
+    width: u.rem(200);
+    text-align: center;
+    border-radius: u.rem(10);
+
+    &--2 {
+      transform: translateX(u.rem(20));
+    }
+  }
+
+  &__pokemon-id-current {
+    font-size: u.rem(30);
+  }
+
+  &__pokemon-name-current {
+    font-size: u.rem(30);
+    padding-bottom: u.rem(15);
+  }
+
+  &__img-wrapper {
+    height: u.rem(400);
+    width: u.rem(400);
+    border-radius: 50%;
+    background-color: bisque;
+  }
+
+  &__title-habitat {
+    padding-top: u.rem(20);
+  }
+
+  &__title-gender {
+    padding-top: u.rem(20);
+  }
+}
+
+.evolution {
+  display: grid;
+  grid-template-columns: repeat(5, min-content);
+  justify-content: center;
+  align-items: center;
+  gap: u.rem(50);
+
+  &__img-wrapper {
+    height: u.rem(100);
+    width: u.rem(100);
+    border-radius: 50%;
+    background-color: bisque;
+  }
+
+  &__arrow {
+    height: u.rem(40);
+    width: u.rem(40);
   }
 }
 
