@@ -1,4 +1,6 @@
 import icons from 'url:../../assets/sprites.svg';
+import cricleArrowLeft from 'url:../../assets/circle-arrow-left-solid.svg';
+import cricleArrowRight from 'url:../../assets/circle-arrow-right-solid.svg';
 
 const PokemonView = class {
   _data;
@@ -44,7 +46,7 @@ const PokemonView = class {
     });
   }
 
-  showModalWindow() {
+  showModalWindow(handler) {
     this._parentElement.addEventListener('click', function (e) {
       // When clicking on heart link, modal window should not be opened
       if (e.target.closest('[data-heart-link]')) return;
@@ -55,9 +57,84 @@ const PokemonView = class {
 
       const overlayEl = document.querySelector('[data-overlay]');
 
-      if (overlayEl.dataset.overlay === 'hidden')
-        overlayEl.dataset.overlay = 'visible';
+      // prettier-ignore
+      if (overlayEl.dataset.overlay === 'hidden') overlayEl.dataset.overlay = 'visible';
+
+      handler(+clicked.dataset.pokemonCard);
     });
+  }
+
+  renderModalWindowHeader(prevPokemon, nextPokemon) {
+    const modalHeader = document.querySelector('[data-modal-header]');
+
+    const markUp = this._generateModalWindowHeader(prevPokemon, nextPokemon);
+
+    modalHeader.innerHTML = '';
+    modalHeader.insertAdjacentHTML('afterbegin', markUp);
+  }
+
+  _generateModalWindowHeader(prevPokemon, nextPokemon) {
+    console.log(nextPokemon);
+    // prettier-ignore
+    return `
+      <h1 class="heading-1 modal-window__title">Pokedex</h1>
+
+      <div class="modal-window__arrows">
+        <div class="modal-window__arrows--prev">
+          <img src="${cricleArrowLeft}" alt="" class="arrow-icon modal-window__arrow modal-window__arrow--prev" data-prev-pokemon="${prevPokemon.id}">     
+          <span class="modal-window__pokemon-id-prev">${prevPokemon.id.toString().padStart(3, '0')}</span>
+          <span class="modal-window__pokemon-name-prev">${prevPokemon.name.charAt(0).toUpperCase() + prevPokemon.name.slice(1)}</span>
+        </div>
+
+
+        ${nextPokemon.id ? `  
+          <div class="modal-window__arrows--next">
+              <span class="modal-window__pokemon-name-next">${nextPokemon.name.charAt(0).toUpperCase() + nextPokemon.name.slice(1)}</span>
+              <span class="modal-window__pokemon-id-next">${nextPokemon.id.toString().padStart(3, '0')}</span>
+              <img src="${cricleArrowRight}" alt="" class="arrow-icon modal-window__arrow modal-window__arrow--next" data-next-pokemon="${nextPokemon.id}">     
+          </div>
+      </div>` : ''}
+        `
+  }
+
+  renderModalWindowContent(currentPokemon) {
+    const modalContent = document.querySelector('[data-modal-content]');
+
+    const markUp = this._generateModalWindowContent(currentPokemon);
+
+    modalContent.innerHTML = '';
+    modalContent.insertAdjacentHTML('afterbegin', markUp);
+  }
+
+  _generateModalWindowContent(currentPokemon) {
+    // prettier-ignore
+    return `
+      <div class="modal-window__types">
+        <h1 class="heading-1">Types</h1>
+        <span class="modal-window__type modal-window__type--1">${currentPokemon.type1}</span>
+
+        ${currentPokemon.type2 ? `<span class="modal-window__type modal-window__type--2">${currentPokemon.type2}</span>` : ''}
+      </div>
+
+      <div class="modal-window__picture">
+        <span class="modal-window__pokemon-id-current">${currentPokemon.id.toString().padStart(3, '0')}</span>
+        <span class="modal-window__pokemon-name-current">${currentPokemon.name.charAt(0).toUpperCase() + currentPokemon.name.slice(1)}</span>
+        <div class="modal-window__img-wrapper">
+          <img src="${currentPokemon.image}" alt="" class="content__img">
+        </div>
+      </div>
+
+      <div class="modal-window__details">
+        <h1 class="heading-1">Height</h1>
+        <h1 class="heading-1">Weight</h1>
+        <span class="modal-window__height">${currentPokemon.height}cm</span>
+        <span class="modal-window__weight">${currentPokemon.weight}kg</span>
+        <h1 class="modal-window__title-habitat heading-1">Habitat</h1>
+        <h1 class="modal-window__title-gender heading-1">Gender</h1>
+        <span class="modal-window__habitat">Forest</span>
+        <span class="modal-window__gender">m/w</span>
+      </div>  
+    `;
   }
 
   addAutoComletion(handler) {

@@ -52,14 +52,14 @@
         </div>
       </header>
       <section class="pokemons" data-pokemon-container=""></section>
-      <div class="overlay" data-overlay="visible">
+      <div class="overlay" data-overlay="hidden">
         <div class="modal-window" data-modal-window>
           <img
             class="modal-window__close" data-close-icon
             src="src/assets/xmark-solid.svg"
             alt="close icon"
           />
-          <header class="modal-window__header">
+          <header class="modal-window__header" data-modal-header>
             <h1 class="heading-1 modal-window__title">Pokedex</h1>
             <div class="modal-window__arrows">
               <div class="modal-window__arrows--prev">
@@ -71,11 +71,12 @@
                 <span class="modal-window__pokemon-name-next">Bisaflor</span>
                 <span class="modal-window__pokemon-id-next">003</span>
                 <img src="src/assets/circle-arrow-right-solid.svg" alt="" class="arrow-icon modal-window__arrow modal-window__arrow--next">     
+              </div>
             </div>
           </header>
 
-          <section class="modal-window__content">
-            <div class="modal-window__types">
+          <section class="modal-window__content" data-modal-content>
+            <!-- <div class="modal-window__types">
               <h1 class="heading-1">Types</h1>
               <span class="modal-window__type modal-window__type--1">Grass</span>
               <span class="modal-window__type modal-window__type--2">Poison</span>
@@ -84,7 +85,6 @@
               <span class="modal-window__pokemon-id-current">002</span>
               <span class="modal-window__pokemon-name-current">Bisaflor</span>
               <div class="modal-window__img-wrapper">
-                <!-- <img src="" alt="" class="content__img"> -->
               </div>
             </div>
             <div class="modal-window__details">
@@ -96,7 +96,7 @@
               <h1 class="modal-window__title-gender heading-1">Gender</h1>
               <span class="modal-window__habitat">Forest</span>
               <span class="modal-window__gender">m/w</span>
-            </div>
+            </div> -->
           </section>
           <footer class="modal-window__evolution evolution">
             <div class="evolution__pokemon">
@@ -111,33 +111,6 @@
               <div class="evolution__img-wrapper"></div>
             </div>
           </footer>
-          <!-- <h1 class="heading-1 modal-window__title">Pokedex</h1>
-          <div class="modal-window__arrows">
-            <div class="modal-window__arrows--left">
-              <img src="src/assets/circle-arrow-left-solid.svg" alt="" class="arrow-icon modal-window__arrow modal-window__arrow--left">     
-              <span class="modal-window__pokemon-id">001</span>
-              <span class="modal-window__pokemon-name">Bisasam</span>
-            </div>
-            <div class="modal-window__arrows--right">
-              <span class="modal-window__pokemon-name">Bisaflor</span>
-              <span class="modal-window__pokemon-id">003</span>
-              <img src="src/assets/circle-arrow-right-solid.svg" alt="" class="arrow-icon modal-window__arrow modal-window__arrow--right">     
-            </div>
-          </div>
-          <img
-            class="modal-window__close" data-close-icon
-            src="src/assets/xmark-solid.svg"
-            alt="close icon"
-          />
-          <div class="modal-window__details">
-          </div>
-          <div class="modal-window__evolution-chain evolution-chain">
-             <div class="evolution-chain__pokemon"></div>
-             <img class="evolution-chain__arrow" src="src/assets/arrow-right-solid.svg" alt="arrow" class="">
-             <div class="evolution-chain__pokemon"></div>
-             <img class="evolution-chain__arrow" src="src/assets/arrow-right-solid.svg" alt="arrow" class="">
-             <div class="evolution-chain__pokemon"></div>
-          </div> -->
         </div>
       </div>
     </div>

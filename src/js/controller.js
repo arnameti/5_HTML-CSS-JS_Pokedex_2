@@ -26,11 +26,20 @@ const controlFavourites = function (id) {
   pokemonView.renderPokemons(model.state.pokemons);
 };
 
+const controlModalWindow = function (id) {
+  const currentPokemon = model.findPokemon(id);
+  pokemonView.renderModalWindowContent(currentPokemon);
+
+  const prevPokemon = model.findPrevPokemon(id);
+  const nextPokemon = model.findNextPokemon(id);
+  pokemonView.renderModalWindowHeader(prevPokemon, nextPokemon);
+};
+
 const init = function () {
   pokemonView.addLoadHanlder(controlPokemons);
   pokemonView.addMouseEvent();
   pokemonView.addAutoComletion(controlAutoCompletion);
-  pokemonView.showModalWindow();
+  pokemonView.showModalWindow(controlModalWindow);
   pokemonView.hideModalWindow();
   pokemonView.addToFavourites(controlFavourites);
 };
